@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Questions & discussion
+    url: https://github.com/aashishbharti04/book-shop-management-system/discussions
+    about: Ask questions and discuss ideas with the community.
+  - name: 📺 CodeWithAsur on YouTube
+    url: https://www.youtube.com/@CodeWithAsur
+    about: Tutorials and walkthroughs.

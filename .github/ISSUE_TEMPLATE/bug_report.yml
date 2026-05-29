@@ -1,0 +1,63 @@
+name: 🐞 Bug report
+description: Report a problem so we can fix it
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to file a bug! Please fill out the sections below.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug.
+      placeholder: When I click "Complete sale" with an empty cart, ...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce it?
+      value: |
+        1. Go to ...
+        2. Click ...
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      description: Output of `python -m bookshop --version`
+      placeholder: bookshop 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: database
+    attributes:
+      label: Database backend
+      options:
+        - SQLite (default)
+        - MySQL
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS & Python version
+      placeholder: Windows 11, Python 3.12
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / traceback
+      description: Paste any relevant console output.
+      render: shell
