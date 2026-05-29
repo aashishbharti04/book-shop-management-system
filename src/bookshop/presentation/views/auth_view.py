@@ -108,8 +108,12 @@ class AuthView(BaseView):
         layout.setContentsMargins(0, 8, 0, 0)
         layout.setSpacing(12)
         self.reg_username = FormField("Username", placeholder="choose a username")
-        self.reg_password = FormField("Password", placeholder="at least 8 characters", password=True)
-        self.reg_confirm = FormField("Confirm password", placeholder="re-enter password", password=True)
+        self.reg_password = FormField(
+            "Password", placeholder="at least 8 characters", password=True
+        )
+        self.reg_confirm = FormField(
+            "Confirm password", placeholder="re-enter password", password=True
+        )
         hint = QLabel("Passwords are stored securely (bcrypt-hashed).")
         hint.setProperty("role", "hint")
         self.register_button = PrimaryButton("Create account")

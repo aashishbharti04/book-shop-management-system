@@ -8,8 +8,12 @@ from bookshop.services.receipt_service import ReceiptService
 
 def _sample_sale() -> SaleDTO:
     items = (
-        SaleItemDTO(book_id=1, title="Clean Code", quantity=2, unit_price_cents=3899, line_total_cents=7798),
-        SaleItemDTO(book_id=2, title="Refactoring", quantity=1, unit_price_cents=5999, line_total_cents=5999),
+        SaleItemDTO(
+            book_id=1, title="Clean Code", quantity=2, unit_price_cents=3899, line_total_cents=7798
+        ),
+        SaleItemDTO(
+            book_id=2, title="Refactoring", quantity=1, unit_price_cents=5999, line_total_cents=5999
+        ),
     )
     return SaleDTO(
         id=7,

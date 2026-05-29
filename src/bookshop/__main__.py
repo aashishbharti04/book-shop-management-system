@@ -29,7 +29,9 @@ def _info() -> int:
     from .core.config import get_settings
 
     settings = get_settings()
-    backend = "SQLite (local file)" if settings.is_sqlite else settings.database_url.split("://", 1)[0]
+    backend = (
+        "SQLite (local file)" if settings.is_sqlite else settings.database_url.split("://", 1)[0]
+    )
     print(_BANNER)
     print(f"  version        : {__version__}")
     print(f"  app name       : {settings.app_name}")

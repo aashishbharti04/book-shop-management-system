@@ -31,7 +31,9 @@ def parse_money_to_cents(text: str | int | float) -> int:
     if isinstance(text, (int, float)):
         amount = Decimal(str(text))
     else:
-        raw = _CLEAN_RE.sub("", str(text)).lstrip(_CURRENCY_SYMBOLS + get_settings().currency_symbol)
+        raw = _CLEAN_RE.sub("", str(text)).lstrip(
+            _CURRENCY_SYMBOLS + get_settings().currency_symbol
+        )
         if not raw:
             raise ValidationError("Price is required.")
         try:

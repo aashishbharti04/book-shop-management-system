@@ -26,9 +26,7 @@ class AuthService(BaseService):
         if not username:
             raise ValidationError("Username is required.")
         if len(username) > MAX_USERNAME_LENGTH:
-            raise ValidationError(
-                f"Username must be at most {MAX_USERNAME_LENGTH} characters."
-            )
+            raise ValidationError(f"Username must be at most {MAX_USERNAME_LENGTH} characters.")
         if password != confirm:
             raise ValidationError("Passwords do not match.")
 
@@ -43,9 +41,7 @@ class AuthService(BaseService):
             try:
                 repo.add(user)
             except IntegrityError as exc:  # pragma: no cover - race-condition guard
-                raise UsernameTakenError(
-                    f"The username '{username}' is already taken."
-                ) from exc
+                raise UsernameTakenError(f"The username '{username}' is already taken.") from exc
             return to_user_dto(user)
 
     def login(self, username: str, password: str) -> UserDTO | None:

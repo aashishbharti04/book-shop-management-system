@@ -9,7 +9,9 @@ from .utils import set_property
 
 
 class Badge(QLabel):
-    def __init__(self, text: str = "", level: str = "success", parent: QWidget | None = None) -> None:
+    def __init__(
+        self, text: str = "", level: str = "success", parent: QWidget | None = None
+    ) -> None:
         super().__init__(text, parent)
         self.setProperty("badge", level)
         self.setAlignment(Qt.AlignmentFlag.AlignCenter)

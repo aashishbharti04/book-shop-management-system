@@ -55,7 +55,9 @@ class InventoryView(BaseView):
             Column("Title", lambda b: b.title, stretch=True),
             Column("Author", lambda b: b.author or "—"),
             Column("ISBN", lambda b: b.isbn or "—"),
-            Column("Price", lambda b: b.price_display, align=_RIGHT, sort_key=lambda b: b.price_cents),
+            Column(
+                "Price", lambda b: b.price_display, align=_RIGHT, sort_key=lambda b: b.price_cents
+            ),
             Column("Stock", lambda b: b.stock_qty, align=_RIGHT, sort_key=lambda b: b.stock_qty),
             Column("Status", lambda b: b.status(self._threshold), sort_key=lambda b: b.stock_qty),
         ]

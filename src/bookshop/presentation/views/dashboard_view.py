@@ -64,11 +64,16 @@ class DashboardView(BaseView):
         root.addWidget(recent_heading)
 
         columns = [
-            Column("Date", lambda s: s.created_at.strftime("%Y-%m-%d %H:%M"),
-                   sort_key=lambda s: s.created_at),
+            Column(
+                "Date",
+                lambda s: s.created_at.strftime("%Y-%m-%d %H:%M"),
+                sort_key=lambda s: s.created_at,
+            ),
             Column("Customer", lambda s: s.customer_name or "—", stretch=True),
             Column("Items", lambda s: s.item_count, align=_RIGHT, sort_key=lambda s: s.item_count),
-            Column("Total", lambda s: s.total_display, align=_RIGHT, sort_key=lambda s: s.total_cents),
+            Column(
+                "Total", lambda s: s.total_display, align=_RIGHT, sort_key=lambda s: s.total_cents
+            ),
         ]
         self.recent_table = DataTable(columns, searchable=False)
         empty = EmptyState(

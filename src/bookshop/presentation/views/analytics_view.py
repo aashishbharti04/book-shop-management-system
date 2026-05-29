@@ -115,8 +115,12 @@ class AnalyticsView(BaseView):
         columns = [
             Column("Title", lambda d: d.title, stretch=True),
             Column("Units", lambda d: d.quantity, align=_RIGHT, sort_key=lambda d: d.quantity),
-            Column("Revenue", lambda d: d.revenue_display, align=_RIGHT,
-                   sort_key=lambda d: d.revenue_cents),
+            Column(
+                "Revenue",
+                lambda d: d.revenue_display,
+                align=_RIGHT,
+                sort_key=lambda d: d.revenue_cents,
+            ),
         ]
         self.table = DataTable(columns, searchable=False)
         content_layout.addWidget(self.table, 2)

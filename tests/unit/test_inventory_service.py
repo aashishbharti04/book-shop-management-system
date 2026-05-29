@@ -6,9 +6,7 @@ from bookshop.core.exceptions import NotFoundError, ValidationError
 
 
 def _add(services, title="A Book", price_cents=1000, qty=5, **kw):
-    return services.inventory.add_book(
-        title=title, price_cents=price_cents, initial_qty=qty, **kw
-    )
+    return services.inventory.add_book(title=title, price_cents=price_cents, initial_qty=qty, **kw)
 
 
 def test_add_book_returns_dto(services):

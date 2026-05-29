@@ -15,7 +15,9 @@ from ..theme import runtime
 class Spinner(QWidget):
     """An indeterminate, theme-coloured spinner."""
 
-    def __init__(self, parent: QWidget | None = None, *, diameter: int = 36, line_width: int = 4) -> None:
+    def __init__(
+        self, parent: QWidget | None = None, *, diameter: int = 36, line_width: int = 4
+    ) -> None:
         super().__init__(parent)
         self._angle = 0
         self._line_width = line_width

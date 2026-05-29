@@ -47,7 +47,9 @@ def test_complete_sale_decrements_stock_and_clears_cart(stocked_context):
     assert view._rows == {}
     assert not view.complete_button.isEnabled()
     # Stock decremented from 5 to 3.
-    refreshed = next(b for b in stocked_context.services.inventory.list_books() if b.title == "Alpha")
+    refreshed = next(
+        b for b in stocked_context.services.inventory.list_books() if b.title == "Alpha"
+    )
     assert refreshed.stock_qty == 3
 
 

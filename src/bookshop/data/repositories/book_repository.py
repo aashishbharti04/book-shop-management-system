@@ -73,9 +73,7 @@ class BookRepository:
     def count_low_stock(self, threshold: int) -> int:
         """Count low-stock books with a scalar query (no row hydration)."""
 
-        stmt = select(func.count(Book.id)).where(
-            Book.stock_qty > 0, Book.stock_qty <= threshold
-        )
+        stmt = select(func.count(Book.id)).where(Book.stock_qty > 0, Book.stock_qty <= threshold)
         return int(self.session.execute(stmt).scalar_one())
 
     def total_stock_units(self) -> int:

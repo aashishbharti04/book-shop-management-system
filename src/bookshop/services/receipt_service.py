@@ -57,7 +57,9 @@ class ReceiptService:
             f"</tr>"
             for item in sale.items
         )
-        meta_bits = [f"<p><strong>Receipt #{sale.id}</strong> &middot; {sale.created_at:%Y-%m-%d %H:%M}</p>"]
+        meta_bits = [
+            f"<p><strong>Receipt #{sale.id}</strong> &middot; {sale.created_at:%Y-%m-%d %H:%M}</p>"
+        ]
         if sale.customer_name:
             meta_bits.append(f"<p>Customer: {html.escape(sale.customer_name)}</p>")
         if sale.customer_phone:
@@ -109,7 +111,9 @@ class ReceiptService:
         document.print_(writer)
         return path
 
-    def print_receipt(self, sale: SaleDTO, parent=None) -> bool:  # pragma: no cover - needs a printer/UI
+    def print_receipt(
+        self, sale: SaleDTO, parent=None
+    ) -> bool:  # pragma: no cover - needs a printer/UI
         """Show the OS print dialog and print the receipt. Returns True if printed."""
 
         from PySide6.QtGui import QTextDocument

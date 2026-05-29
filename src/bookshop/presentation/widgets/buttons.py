@@ -7,7 +7,9 @@ from PySide6.QtWidgets import QPushButton, QWidget
 
 
 class _BaseButton(QPushButton):
-    def __init__(self, text: str = "", parent: QWidget | None = None, *, variant: str = "secondary") -> None:
+    def __init__(
+        self, text: str = "", parent: QWidget | None = None, *, variant: str = "secondary"
+    ) -> None:
         super().__init__(text, parent)
         self.setProperty("variant", variant)
         self.setCursor(Qt.CursorShape.PointingHandCursor)

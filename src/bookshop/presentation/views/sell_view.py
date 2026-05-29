@@ -108,7 +108,9 @@ class SellView(BaseView):
         heading.setProperty("role", "h2")
         columns = [
             Column("Title", lambda b: b.title, stretch=True),
-            Column("Price", lambda b: b.price_display, align=_RIGHT, sort_key=lambda b: b.price_cents),
+            Column(
+                "Price", lambda b: b.price_display, align=_RIGHT, sort_key=lambda b: b.price_cents
+            ),
             Column("Stock", lambda b: b.stock_qty, align=_RIGHT, sort_key=lambda b: b.stock_qty),
         ]
         self.catalog = DataTable(columns, search_placeholder="Search the catalogue…")
@@ -178,7 +180,9 @@ class SellView(BaseView):
         self.vm.booksLoaded.connect(self.catalog.set_rows)
         self.vm.saleCompleted.connect(self._on_sale_completed)
         self.vm.errorOccurred.connect(lambda msg: self.ctx.notify(msg, "error"))
-        self.vm.busyChanged.connect(lambda busy: self.complete_button.setEnabled(not busy and bool(self._rows)))
+        self.vm.busyChanged.connect(
+            lambda busy: self.complete_button.setEnabled(not busy and bool(self._rows))
+        )
 
     def on_show(self) -> None:
         self.vm.load_books()

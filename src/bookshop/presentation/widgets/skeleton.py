@@ -10,7 +10,9 @@ from ..motion import reduced_motion
 
 
 class SkeletonBar(QFrame):
-    def __init__(self, parent: QWidget | None = None, *, height: int = 14, width: int | None = None) -> None:
+    def __init__(
+        self, parent: QWidget | None = None, *, height: int = 14, width: int | None = None
+    ) -> None:
         super().__init__(parent)
         self.setObjectName("Skeleton")
         self.setFixedHeight(height)
