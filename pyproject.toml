@@ -32,7 +32,10 @@ classifiers = [
 ]
 dependencies = [
   "PySide6>=6.6",
-  "SQLAlchemy>=1.4,<3",
+  # Pinned to the 1.4 series the models are written against (classic `Column`
+  # style). The app runs on 2.0 too, but a clean `Mapped[]` migration is needed
+  # before relaxing this — tracked for a future release.
+  "SQLAlchemy>=1.4,<2.0",
   "alembic>=1.11",
   "bcrypt>=4.0",
   "matplotlib>=3.7",
